@@ -1,73 +1,133 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# WebCars
 
-Currently, two official plugins are available:
+![Badge React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Badge TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Badge Tailwind](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Badge Firebase](https://img.shields.io/badge/Firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
+![Badge Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Badge Status](https://img.shields.io/badge/status-online-success)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Sobre o projeto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+é um sistema de anúncios de carros novos e usados, desenvolvido com **React**, **TypeScript**, **TailwindCSS** e **Firebase**. O usuário pode se cadastrar, fazer login, cadastrar veículos com fotos e dados (modelo, ano, km, preço, cidade, WhatsApp) e visualizar todos os anúncios na home, com busca e detalhes de cada carro.O sistema possui **autenticação**, **rotas privadas** (painel e cadastro de carro apenas para usuários logados) e **interface responsiva** 
 
-## Expanding the ESLint configuration
+**Deploy**: 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Layout
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+<p align="center">
+  <img src="./screenshots/home.png" width="800">
+</p>
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+<p align="center">
+  <img src="./screenshots/details.png" width="800">
+</p>
+
+<p align="center">
+  <img src="./screenshots/singup.png" width="800">
+</p>
+
+---
+
+## Tecnologias utilizadas
+
+O projeto foi desenvolvido com as seguintes tecnologias:
+
+- **React** — Biblioteca principal para interface  
+- **TypeScript** — Tipagem estática e melhor manutenção  
+- **TailwindCSS** — Estilização rápida e responsiva  
+- **Firebase** — Autenticação, Firestore e Storage (fotos)  
+- **Vite** — Ferramenta de build e servidor local  
+- **React Router DOM** — Navegação e rotas  
+- **React Hook Form** — Formulários e validação  
+- **React Hot Toast** — Notificações  
+- **Swiper** — Carrossel de imagens  
+
+## Funcionalidades
+
+- Login e cadastro com Firebase  
+- Listagem de carros na home com busca  
+- Visualização dos detalhes do carro  
+- Painel do usuário (dashboard) com seus anúncios  
+- Cadastro de carro com múltiplas imagens (Firebase Storage)  
+- Edição e exclusão de anúncios pelo dono  
+- Proteção de rotas (área restrita a usuários autenticados)  
+- Interface totalmente responsiva  
+
+---
+
+## Como rodar o projeto
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+- Conta no [Firebase Console](https://console.firebase.google.com/)
+
+---
+
+### Clonando o repositório
+
+```bash
+git clone https://github.com/SEU_USUARIO/webcars.git
+cd webcars
+````
+
+---
+
+### Instalando dependências
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Variáveis de ambiente
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Crie um arquivo `.env` na raiz do projeto
+(use o `.env.example` como base):
+
+```env
+VITE_API_KEY=
+VITE_AUTH_DOMAIN=
+VITE_PROJECT_ID=
+VITE_STORAGE_BUCKET=
+VITE_MESSAGING_SENDER_ID=
+VITE_APP_ID=
 ```
+
+---
+
+### ▶️ Executando o projeto
+
+```bash
+npm run dev
+```
+
+O projeto será iniciado em:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Contribuições & Observações
+
+Fique à vontade para contribuir com o projeto!
+
+* Siga as boas práticas de commits
+* Crie Pull Requests com explicações claras
+
+Projeto desenvolvido para fins de aprendizado e portfólio.
+As informações e dados utilizados são apenas exemplos.
+
+<p align="center">
+  Feito por <b>João Vitor</b> 🖖
+</p>
