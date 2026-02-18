@@ -28,10 +28,6 @@
   <img src="./screenshots/details.png" width="800">
 </p>
 
-<p align="center">
-  <img src="./screenshots/singup.png" width="800">
-</p>
-
 ---
 
 ## Tecnologias utilizadas
