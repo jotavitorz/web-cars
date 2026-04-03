@@ -12,7 +12,7 @@
 
 ## Sobre o projeto
 
-é um sistema de anúncios de carros novos e usados, desenvolvido com **React**, **TypeScript**, **TailwindCSS** e **Firebase**. O usuário pode se cadastrar, fazer login, cadastrar veículos com fotos e dados (modelo, ano, km, preço, cidade, WhatsApp) e visualizar todos os anúncios na home, com busca e detalhes de cada carro.O sistema possui **autenticação**, **rotas privadas** (painel e cadastro de carro apenas para usuários logados) e **interface responsiva** 
+É um sistema de anúncios de carros novos e usados, desenvolvido com **React**, **TypeScript**, **TailwindCSS** e **Firebase**. O usuário pode se cadastrar, fazer login, cadastrar veículos com fotos e dados (modelo, ano, km, preço, cidade, WhatsApp) e visualizar todos os anúncios na home, com busca e detalhes de cada carro.O sistema possui **autenticação**, **rotas privadas** (painel e cadastro de carro apenas para usuários logados) e **interface responsiva** 
 
 **Deploy**: 
 
@@ -70,7 +70,7 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 ### Clonando o repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/webcars.git
+git clone https://github.com/jotavitorz/web-cars.git
 cd webcars
 ````
 
