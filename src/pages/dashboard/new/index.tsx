@@ -1,7 +1,6 @@
 import { type ChangeEvent, useState, useContext } from "react";
 import { Container } from "../../../components/container";
 import { DashboardHeader } from "../../../components/panelheader";
-
 import { FiUpload, FiTrash} from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import { Input } from "../../../components/input";
@@ -13,6 +12,7 @@ import toast from "react-hot-toast";
 import { storage, db } from "../../../services/firebaseConnection";
 import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
+import { isDemo } from "../../../config/demo";
 
 const schema = z.object({
     name: z.string().nonempty("O campo nome é obrigatório"),
@@ -52,7 +52,7 @@ export function New() {
             if(image.type === "image/jpeg" || image.type === "image/png"){
                 await handleUpload(image);
             }else {
-                alert("Envie uma imagem jpeg ou png!");
+                toast.error("Envie uma imagem jpeg ou png!");
                 return;
             }
         }
@@ -98,6 +98,11 @@ export function New() {
     }
 
     function onSubmit(data: FormData){
+
+        if(isDemo){
+            toast.error("Cadastro de veículos desativado na versão demonstrativa.");
+            return;
+        }
 
         if(carImages.length === 0){
             toast.error("Envie pelo menos 1 imagem!");
@@ -271,7 +276,7 @@ export function New() {
                         {errors.description && <p className="mb-1 text-red-500">{errors.description.message}</p>}
                     </div>
 
-                    <button type="submit" className="w-full rounded-md bg-zinc-900 text-white font-medium h-10">
+                    <button type="submit" disabled={isDemo} className="w-full rounded-md bg-zinc-900 text-white font-medium h-10">
                         Cadastrar
                     </button>
 

@@ -6,11 +6,11 @@ import { Input } from "../../components/input";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { auth } from "../../services/firebaseConnection";
 import { createUserWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import { AuthContext } from "../../context/AuthContext";
 import toast from "react-hot-toast";
+import { isDemo } from "../../config/demo";
 
 const schema = z.object({
     name: z.string().nonempty("O campo nome é Obrigatório"),
@@ -37,6 +37,11 @@ export function Register() {
     }, [])
 
     async function onSubmit(data: FormData){
+
+        if(isDemo){
+            toast.error("Cadastro desativado na versão demostrativa");
+            return;
+        }
 
         createUserWithEmailAndPassword(auth, data.email, data.password)
         .then(async (user) => {
@@ -70,6 +75,7 @@ export function Register() {
                     />
                 </Link>
 
+                {isDemo && (<p className="text-yellow-600 text-sm mb-3">🔒 Cadastro desativado nesta versão demonstrativa.</p>)}
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className="bg-white max-w-xl w-full rounded-lg p-4 "
