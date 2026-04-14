@@ -16,6 +16,8 @@
 
 **Deploy**: https://web-cars-puce.vercel.app/
 
+⚠️ Versão demonstrativa: cadastro de usuários e upload de imagens estão desativados devido às limitações do plano gratuito do Firebase Storage.
+
 ---
 
 ## Layout
